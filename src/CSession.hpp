@@ -36,11 +36,11 @@ namespace SqDiscord
 
         static void CSession::Register_CSession(Sqrat::Table tb);
 
+        moodycamel::ReaderWriterQueue<Event> eventQueue;
+
     private:
         dpp::cluster *bot = nullptr;
         std::string token_;
-        std::mutex mutex_;
-        moodycamel::ReaderWriterQueue<Event> eventQueue;
 
         void SetupEvents();
         void FireEvent(int type, const std::vector<std::string> &args);
