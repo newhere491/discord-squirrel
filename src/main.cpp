@@ -153,14 +153,14 @@ namespace SqDiscord
 		GetConsoleScreenBufferInfo(hstdout, &csbBefore);
 
 		SetConsoleTextAttribute(hstdout, FOREGROUND_GREEN);
-		printf("[SqDiscords]  ");
+		printf("[SqDiscord]  ");
 
 		SetConsoleTextAttribute(hstdout, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 		printf("%s\n", msg.c_str());
 
 		SetConsoleTextAttribute(hstdout, csbBefore.wAttributes);
 #else
-		printf("\033[0;32m[SqDiscords]\033[0;37m %s\n", msg.c_str());
+		printf("\033[0;32m[SqDiscord]\033[0;37m %s\n", msg.c_str());
 #endif
 	}
 
@@ -177,7 +177,7 @@ namespace SqDiscord
 		GetConsoleScreenBufferInfo(hstdout, &csbBefore);
 
 		SetConsoleTextAttribute(hstdout, FOREGROUND_RED | FOREGROUND_INTENSITY);
-		printf("[SqDiscords]   ");
+		printf("[SqDiscord]   ");
 
 		SetConsoleTextAttribute(hstdout, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 		printf("%s\n", msg.c_str());
@@ -201,7 +201,7 @@ namespace SqDiscord
 		GetConsoleScreenBufferInfo(hstdout, &csbBefore);
 
 		SetConsoleTextAttribute(hstdout, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-		printf("[SqDiscords] ");
+		printf("[SqDiscord] ");
 
 		SetConsoleTextAttribute(hstdout, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
 		printf("%s\n", msg.c_str());

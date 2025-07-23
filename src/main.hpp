@@ -20,7 +20,7 @@
 #include <cstdio> // For vsnprintf
 #include <string> // For std::string
 
-#define PLUGIN_NAME "sqdiscord"
+#define PLUGIN_NAME "SqDiscord"
 
 // A definition needed for Squirrel's print function
 #ifdef SQUNICODE
@@ -29,10 +29,10 @@
 #define scvprintf vprintf
 #endif
 
-namespace sqdiscord
+namespace SqDiscord
 {
 	void OutputDebug(const char *format, ...);
 	void OutputMsg(const char *format, ...);
 	void OutputErr(const char *format, ...);
 	void OutputWarn(const char *format, ...);
-} // Namespace - sqdiscord
+} // Namespace - SqDiscord

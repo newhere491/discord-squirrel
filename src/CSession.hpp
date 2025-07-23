@@ -26,15 +26,20 @@ namespace SqDiscord
         CSession();
         ~CSession();
 
+        CSession(const CSession &) = delete;
+        CSession &operator=(const CSession &) = delete;
+        CSession(CSession &&) = delete;
+        CSession &operator=(CSession &&) = delete;
+
         void Connect(const std::string &token);
         void Message(const std::string &channelID, const std::string &content);
-        void MessageEmbed(const std::string &channelID, const std::string &content, const dpp::embed &embed);
-        std::string GetRoleName(dpp::snowflake guildID, dpp::snowflake roleID);
+        // void MessageEmbed(const std::string &channelID, const std::string &content, const dpp::embed &embed);
+        // std::string GetRoleName(dpp::snowflake guildID, dpp::snowflake roleID);
 
         static void Process();
         void Update();
 
-        static void CSession::Register_CSession(Sqrat::Table tb);
+        static void Register_CSession(Sqrat::Table tb);
 
         moodycamel::ReaderWriterQueue<Event> eventQueue;
 
