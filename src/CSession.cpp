@@ -103,7 +103,7 @@ namespace SqDiscord
     {
         using namespace Sqrat;
         tb.Bind(_SC("CSession"),
-                Class<CSession>(tb.GetVM(), _SC("CSession"))
+                Class<CSession, NoCopy<CSession>>(tb.GetVM(), _SC("CSession"))
                     .Prop(_SC("ConnID"), &CSession::connID)
                     .Prop(_SC("InternalCacheEnabled"), &CSession::InternalCacheEnabled)
                     .Func(_SC("Connect"), &CSession::Connect)
