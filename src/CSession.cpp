@@ -1,5 +1,5 @@
 #include "CSession.hpp"
-HSQUIRRELVM v;
+extern HSQUIRRELVM v;
 
 // Global
 namespace SqDiscord
