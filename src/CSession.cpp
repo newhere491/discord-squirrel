@@ -4,13 +4,13 @@ HSQUIRRELVM v;
 // Global
 namespace SqDiscord
 {
-    static std::unordered_map<int, std::shared_ptr<CSession>> sessions;
+    static std::unordered_map<int, CSession *> sessions;
     static int nextConnID = 1;
 
     CSession::CSession()
     {
         connID = nextConnID++;
-        sessions[connID] = std::shared_ptr<CSession>(this);
+        sessions[connID] = this;
     }
 
     CSession::~CSession()
@@ -35,12 +35,12 @@ namespace SqDiscord
             return;
         bot->message_create(dpp::message(channelID, content));
     }
-
     void Process()
     {
-        for (auto &session : sessions)
+        for (auto &[id, session] : sessions)
         {
-            session.second->Update();
+            if (session)
+                session->Update();
         }
     }
 
