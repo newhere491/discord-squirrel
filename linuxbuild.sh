@@ -27,7 +27,7 @@ fi
 echo "[INFO] Found container: $CONTAINER_ID"
 
 # Step 4: Copy the built plugin to /plugins inside container
-PLUGIN_FILE="discord04rel64.so"
+PLUGIN_FILE="src/discord04rel64.so"
 if [ ! -f "$PLUGIN_FILE" ]; then
     echo "[ERROR] Plugin file '$PLUGIN_FILE' not found in build64"
     exit 1
