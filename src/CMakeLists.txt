@@ -34,13 +34,21 @@ target_include_directories(SqDiscord
         ${OPENSSL_INCLUDE_DIR}
 )
 
-# Link static libcurl + OpenSSL + Windows libs
-target_link_libraries(SqDiscord
-    PRIVATE
-        ${OPENSSL_LIBRARIES}
-        dpp
 
-)
+# Platform-specific linking
+if(UNIX)
+    # Linux: only depend on libcurl (which itself pulls OpenSSL)
+    target_link_libraries(SqDiscord
+        PRIVATE
+            dpp
+    )
 
-# Static linking macro
-target_compile_definitions(SqDiscord PRIVATE DPP_STATIC)
+elseif(WIN32)
+    # Windows: statically link everything
+    target_link_libraries(SqDiscord
+        PRIVATE
+            dpp
+        -static
+    )
+    target_compile_definitions(SqDiscord PRIVATE DPP_STATIC)
+endif()
