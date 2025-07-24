@@ -43,4 +43,4 @@ target_link_libraries(SqDiscord
 )
 
 # Static linking macro
-target_compile_definitions(SqDiscord PRIVATE dpp::dpp)
+target_compile_definitions(SqDiscord PRIVATE DPP_STATIC)
