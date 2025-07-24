@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.11)
-project(sqdiscord-squirrel)
+project(SqDiscord-squirrel)
 
 # Options
 option(FORCE_32BIT_BIN "Create a 32-bit executable binary if the compiler defaults to 64-bit." OFF)

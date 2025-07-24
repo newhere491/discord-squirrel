@@ -2,7 +2,7 @@
 #include <curl/curl.h>
 #include <thread>
 
-namespace sqdiscord
+namespace SqDiscord
 {
 
     Request::Request(const std::string &method)
@@ -92,7 +92,7 @@ namespace sqdiscord
     Request *PUT() { return new Request("PUT"); }
     Request *DELETE_() { return new Request("DELETE"); }
 
-    void sqdiscord::Request::Register_sqdiscord(Sqrat::Table tb)
+    void SqDiscord::Request::Register_SqDiscord(Sqrat::Table tb)
     {
         using namespace Sqrat;
 

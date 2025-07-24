@@ -3,7 +3,7 @@
 #include <functional>
 #include "includes.hpp"
 
-namespace sqdiscord
+namespace SqDiscord
 {
 
     class Request
@@ -19,7 +19,7 @@ namespace sqdiscord
         Request &setBody(const std::string &body);
         void send(Sqrat::Function callback);
 
-        static void Register_sqdiscord(Sqrat::Table tb);
+        static void Register_SqDiscord(Sqrat::Table tb);
 
     private:
         std::string method_;

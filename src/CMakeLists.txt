@@ -1,20 +1,19 @@
-﻿add_library(sqdiscord SHARED
+﻿add_library(SqDiscord SHARED
     main.hpp
     main.cpp
     includes.hpp
     CSession.hpp
     CSession.cpp
-
 )
 
 # Define _SQ64 if 64-bit
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
-    target_compile_definitions(sqdiscord PRIVATE _SQ64)
+    target_compile_definitions(SqDiscord PRIVATE _SQ64)
     message("DEFAULTING TO 64 BIT BINARIES")
 endif()
 
 # Plugin name without "lib" prefix
-set_target_properties(sqdiscord PROPERTIES PREFIX "")
+set_target_properties(SqDiscord PROPERTIES PREFIX "")
 
 # Plugin output name
 if(CMAKE_SIZEOF_VOID_P EQUAL 8 AND NOT FORCE_32BIT_BIN)
@@ -23,10 +22,10 @@ else()
     set(PLUGIN_NAME "discord04rel32")
 endif()
 
-set_target_properties(sqdiscord PROPERTIES OUTPUT_NAME ${PLUGIN_NAME})
+set_target_properties(SqDiscord PROPERTIES OUTPUT_NAME ${PLUGIN_NAME})
 
 # Include headers
-target_include_directories(sqdiscord
+target_include_directories(SqDiscord
     PRIVATE
         ${PROJECT_SOURCE_DIR}/src
         ${PROJECT_SOURCE_DIR}/include
@@ -36,12 +35,12 @@ target_include_directories(sqdiscord
 )
 
 # Link static libcurl + OpenSSL + Windows libs
-target_link_libraries(sqdiscord
+target_link_libraries(SqDiscord
     PRIVATE
         ${OPENSSL_LIBRARIES}
         dpp
-        -static
+
 )
 
 # Static linking macro
-target_compile_definitions(sqdiscord PRIVATE DPP_STATIC)
+target_compile_definitions(SqDiscord PRIVATE DPP_STATIC)
