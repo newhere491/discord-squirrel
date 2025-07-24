@@ -34,6 +34,6 @@ if [ ! -f "$PLUGIN_FILE" ]; then
 fi
 
 echo "[INFO] Copying $PLUGIN_FILE into container:/plugins ..."
-docker cp "$PLUGIN_FILE" "$CONTAINER_ID":/plugins/
+docker cp "$PLUGIN_FILE" "$CONTAINER_ID":/home/container/plugins/
 
 echo "[SUCCESS] Plugin deployed successfully."
